@@ -1,36 +1,48 @@
-# MedThread AI - Healthcare Provider User Manual
+# MedThread AI v1.0.0 - Healthcare Provider User Manual
+
+**Version**: 1.0.0  
+**Release Date**: January 2025  
+**Deployment Model**: Single Device Per User  
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Getting Started](#getting-started)
-3. [Patient Management](#patient-management)
-4. [AI-Powered Conversations](#ai-powered-conversations)
-5. [File Management](#file-management)
-6. [Task Management](#task-management)
-7. [Data Security & Privacy](#data-security--privacy)
-8. [Troubleshooting](#troubleshooting)
-9. [Support & Contact](#support--contact)
+3. [Hospital Onboarding](#hospital-onboarding)
+4. [User Management](#user-management)
+5. [Patient Management](#patient-management)
+6. [AI-Powered Conversations](#ai-powered-conversations)
+7. [File Management](#file-management)
+8. [Task Management](#task-management)
+9. [Data Security & Privacy](#data-security--privacy)
+10. [Device Management](#device-management)
+11. [Troubleshooting](#troubleshooting)
+12. [Support & Contact](#support--contact)
 
 ---
 
 ## Introduction
 
 ### What is MedThread AI?
-MedThread AI is a comprehensive healthcare communication platform designed specifically for medical professionals. It combines secure patient data management with advanced AI capabilities to streamline clinical workflows, enhance patient care, and improve documentation efficiency.
+MedThread AI is a comprehensive hospital administration system designed specifically for healthcare facilities. It provides a complete workflow from onboarding to patient management, featuring AI-powered assistance, role-based access control, and secure local data storage.
 
-### Key Features
+### Key Features ✅
+- **5-Step Hospital Onboarding**: Specialty selection, personalization, user creation, AI configuration, and review
+- **Complete Login System**: Secure authentication with credential validation
+- **Role-Based Access Control**: Support for doctors, nurses, and administrators
+- **AI-Powered Assistance**: Integrated Groq API and WebLLM for intelligent responses
+- **Local Data Storage**: All data stored locally for maximum privacy and offline capability
 - **FHIR R4 Compliant**: Full compliance with healthcare data standards
-- **AI-Powered Assistance**: Integrated GROQ and WebLLM for intelligent responses
 - **Secure File Management**: Upload, store, and manage patient documents
 - **Task Tracking**: Organize and monitor clinical tasks
-- **Local Data Storage**: All data stored locally for maximum privacy
-- **Multi-Provider Support**: Role-based access for different healthcare roles
 
 ### System Requirements
 - Modern web browser (Chrome, Firefox, Safari, Edge)
-- Stable internet connection for AI features
+- Stable internet connection for AI features (optional)
 - Minimum 4GB RAM recommended
-- 1GB available storage space
+- 1GB available storage space per device
+
+### Deployment Model (v1.0.0)
+**Single Device Per User**: Each healthcare worker uses one primary device. Data is stored locally on each device for optimal performance and privacy. Multi-device synchronization will be available in future versions.
 
 ---
 
@@ -43,170 +55,224 @@ MedThread AI is a comprehensive healthcare communication platform designed speci
    - The application will automatically initialize the database
    - Wait for the "Database initialized successfully" message
 
-2. **Role Selection**
-   - Choose your healthcare role:
-     - **Physician**: Full access to all features
-     - **Nurse**: Patient care and documentation focus
-     - **Administrator**: System management and oversight
-     - **Specialist**: Specialized care workflows
-
-3. **License Configuration**
-   - Enter your clinic's license key if provided
-   - This enables clinic-specific customizations
-   - Contact support if you need a license key
-
-### Navigation Overview
-
-#### Main Interface Components
-- **Patient Sidebar**: List of all patients with quick access
-- **Chat Window**: Main conversation area with AI assistance
-- **AI Info Panel**: Real-time AI model status and information
-- **Task Panel**: Active tasks and reminders
-- **File Management**: Upload and view patient documents
+2. **Automatic Onboarding Detection**
+   - If this is the first time accessing the application, you'll be automatically redirected to the onboarding process
+   - If the hospital is already configured, you'll see the login screen
 
 ---
 
-## Patient Management
+## Hospital Onboarding
 
-### Adding New Patients
+### Step 1: Medical Specialty Selection
+Choose your hospital's primary specialty:
+- **Fertility & Reproductive Medicine**: IVF, OHSS monitoring, embryo assessment
+- **Pediatrics**: Child health, development, vaccinations
+- **Radiology**: Medical imaging interpretation
+- **General Medicine**: Primary care and internal medicine
 
-1. **Create Patient Record**
-   - Click "Add Patient" in the sidebar
-   - Fill in required information:
-     - Full Name
-     - Date of Birth
-     - Medical Record Number (MRN)
-     - Contact Information
-     - Insurance Details (optional)
+### Step 2: Hospital Personalization
+Configure your hospital details:
+- **Doctor/Admin Name**: Primary administrator name
+- **Hospital Name**: Your healthcare facility name
+- **Location**: Hospital location/address
 
-2. **Patient Status**
-   - **Active**: Currently receiving care
-   - **Inactive**: Not currently under active care
-   - **Discharged**: Completed treatment
-   - **Referred**: Referred to another provider
+### Step 3: User Account Creation
+Create user accounts for your healthcare team:
+- **Doctors**: Full access to all features
+- **Nurses**: Patient care and documentation focus
+- **Administrators**: System management and oversight
 
-### Patient Information Management
+**User Creation Process:**
+1. Enter full name
+2. Create username
+3. Set secure password
+4. Select role (Doctor/Nurse/Admin)
+5. Assign department
 
-#### Viewing Patient Details
-- Click on any patient name to view their information
-- Access medical history, current medications, and allergies
-- Review previous conversations and documentation
+### Step 4: AI Configuration
+Optional AI enhancement setup:
+- **Groq API Key**: Enter your API key for enhanced AI capabilities
+- **Local AI Fallback**: WebLLM will be used if no API key is provided
+- **Skip Option**: Continue without AI enhancements
 
-#### Updating Patient Information
-- Select patient and click "Edit Details"
-- Modify any field as needed
-- Changes are automatically saved
-- All modifications are logged for audit purposes
-
-### FHIR Resource Management
-
-MedThread AI supports standard FHIR R4 resources:
-
-- **Patient**: Demographics and contact information
-- **Observation**: Vital signs, lab results, assessments
-- **Condition**: Diagnoses and medical conditions
-- **DocumentReference**: Uploaded files and documents
-- **Task**: Clinical tasks and reminders
-
----
-
-## AI-Powered Conversations
-
-### Starting a Conversation
-
-1. **Select Patient**: Choose patient from sidebar
-2. **Type Message**: Enter your question or request in the chat box
-3. **AI Response**: Receive intelligent, context-aware responses
-4. **Continue Dialog**: Build on the conversation naturally
-
-### AI Capabilities
-
-#### Medical Query Assistance
-- **Symptom Analysis**: "What could cause chest pain in a 45-year-old male?"
-- **Treatment Options**: "What are the treatment options for Type 2 diabetes?"
-- **Drug Interactions**: "Check interactions between metformin and lisinopril"
-- **Diagnostic Support**: "Interpret these lab results: glucose 180, HbA1c 8.2"
-
-#### Documentation Support
-- **SOAP Notes**: "Generate a SOAP note for this patient visit"
-- **Discharge Summaries**: "Create discharge summary for pneumonia treatment"
-- **Referral Letters**: "Draft referral to cardiology for chest pain evaluation"
-- **Patient Instructions**: "Create post-operative care instructions"
-
-#### Clinical Decision Support
-- **Guidelines**: "What are the current hypertension treatment guidelines?"
-- **Risk Assessment**: "Calculate cardiovascular risk for this patient"
-- **Screening Recommendations**: "What screenings are due for a 50-year-old woman?"
-
-### Best Practices for AI Interaction
-
-1. **Be Specific**: Provide detailed context for better responses
-2. **Include Relevant Data**: Mention patient age, gender, symptoms, history
-3. **Ask Follow-up Questions**: Drill down for more specific information
-4. **Verify Information**: Always validate AI suggestions with clinical judgment
-5. **Document Decisions**: Record your clinical reasoning and decisions
-
-### AI Model Information
-
-The AI Info Panel shows:
-- **Current Model**: Active AI model (GROQ or WebLLM)
-- **Status**: Online/Offline status
-- **Response Time**: Average response latency
-- **Usage Statistics**: Daily query count and performance metrics
+### Step 5: Configuration Review
+Review and confirm your setup:
+- Hospital information summary
+- Created user accounts
+- AI configuration status
+- System capabilities overview
 
 ---
 
-## File Management
+## User Management
 
-### Uploading Files
+### Logging In
+1. Enter your username and password
+2. Click "Sign In"
+3. You'll be redirected to the main application
 
-1. **Access Upload Modal**
-   - Click the paperclip icon in the chat window
-   - Or use the "Upload Files" button in patient details
+### User Roles & Permissions
 
-2. **Select Files**
-   - Drag and drop files into the upload area
-   - Or click "Choose Files" to browse
-   - Maximum file size: 10MB per file
+**Doctor Role:**
+- Full patient management access
+- AI consultation features
+- File upload and management
+- Task creation and assignment
+- Complete chat history access
 
-3. **Supported File Types**
-   - **Images**: JPG, PNG, GIF, BMP, WebP
-   - **Documents**: PDF, DOC, DOCX, TXT
-   - **Medical Images**: DICOM (basic support)
+**Nurse Role:**
+- Patient care documentation
+- Task management
+- File viewing and basic uploads
+- Limited AI consultation
 
-### File Organization
+**Administrator Role:**
+- User management
+- System configuration
+- Full access to all features
+- Hospital settings management
 
-#### Viewing Patient Files
-- Click the folder icon in the patient header
-- Browse all files associated with the patient
-- Files are organized by upload date
-- Search files by name or type
-
-#### File Actions
-- **Preview**: View files directly in the browser
-- **Download**: Save files to your local device
-- **Delete**: Remove files (with confirmation)
-- **Share**: Generate secure links for file sharing
-
-### File Security
-
-- All files are encrypted at rest
-- Access is logged for audit purposes
-- Files are automatically backed up
-- Retention policies can be configured per clinic
+### Password Reset
+If you forget your password:
+1. Contact your hospital administrator
+2. They can reset your password through the admin panel
+3. Or clear setup data to restart onboarding (⚠️ This will delete all data)
 
 ---
 
-## Task Management
+## Device Management
 
-### Creating Tasks
+### Single Device Deployment (v1.0.0)
 
-1. **Manual Task Creation**
-   - Click "Add Task" in the task panel
-   - Fill in task details:
-     - Title and description
-     - Priority level (High, Medium, Low)
-     - Due date and time
+**Current Model:**
+- Each healthcare worker uses one primary device
+- All data is stored locally on that device
+- No synchronization between devices
+- Complete offline capability once configured
+
+**Device Setup Process:**
+1. **Primary Device Selection**: Choose one main device per user (workstation, tablet, or laptop)
+2. **Complete Onboarding**: Each device requires full 5-step onboarding
+3. **User Account Creation**: Create user accounts on each device as needed
+4. **Independent Operation**: Each device operates independently
+
+**Recommended Device Strategy:**
+- **Workstations**: For doctors and nurses at fixed locations
+- **Tablets**: For mobile healthcare workers
+- **Shared Devices**: For common areas (nursing stations, consultation rooms)
+
+**Data Considerations:**
+- ✅ **What Works**: Complete patient management, AI assistance, file storage
+- ⚠️ **Limitations**: Patient data doesn't sync between devices
+- 📋 **Best Practice**: Designate primary devices for each user
+
+**Future Versions:**
+- v2.0+: Multi-device synchronization
+- v2.0+: Centralized user management
+- v2.0+: Cloud backup options
+
+### Device Security
+- **Local Storage**: All data encrypted in browser localStorage
+- **No Cloud Dependency**: Data never leaves the device
+- **Session Management**: Automatic logout after inactivity
+- **Access Control**: Role-based permissions enforced locally
+
+---
+
+## Data Security & Privacy
+
+### Data Storage
+- **Local Only**: All patient data stored in browser localStorage
+- **No External Servers**: No data transmitted to external servers
+- **HIPAA Considerations**: Local storage provides maximum privacy control
+- **Data Encryption**: Browser-level encryption for stored data
+
+### Security Features
+- **Role-Based Access**: Different permissions for doctors, nurses, and admins
+- **Session Management**: Automatic logout and session validation
+- **Input Validation**: All user inputs validated and sanitized
+- **Secure Authentication**: Password-based login with validation
+
+### Privacy Controls
+- **Offline Operation**: Works without internet connection
+- **No Tracking**: No analytics or tracking implemented
+- **Local AI**: WebLLM runs entirely in browser
+- **Optional Cloud AI**: Groq API only used if explicitly configured
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+**Application Won't Load:**
+1. Check browser compatibility (Chrome, Firefox, Safari, Edge)
+2. Clear browser cache and cookies
+3. Ensure JavaScript is enabled
+4. Check browser console for errors
+
+**Onboarding Issues:**
+1. Ensure all required fields are filled
+2. Check password requirements (minimum 6 characters)
+3. Verify specialty selection is made
+4. Try refreshing the page
+
+**Login Problems:**
+1. Verify username and password are correct
+2. Check if user account exists on this device
+3. Contact administrator for password reset
+4. Clear setup data if necessary (⚠️ Deletes all data)
+
+**AI Not Working:**
+1. Check internet connection for Groq API
+2. Verify API key is correctly entered
+3. WebLLM fallback should work offline
+4. Check browser console for AI-related errors
+
+**Performance Issues:**
+1. Close unnecessary browser tabs
+2. Ensure sufficient RAM (4GB minimum)
+3. Clear browser cache
+4. Restart browser
+
+### Data Recovery
+- **Local Storage**: Data is tied to specific browser/device
+- **No Backup**: Currently no automatic backup system
+- **Export Options**: Manual export features available
+- **Fresh Start**: Clear setup data to restart completely
+
+---
+
+## Support & Contact
+
+### Getting Help
+- **Documentation**: Refer to this user manual
+- **Release Notes**: Check RELEASE_READINESS_REPORT.md
+- **Test Results**: Review TEST_PLAN.md for feature verification
+
+### Version Information
+- **Current Version**: 1.0.0
+- **Release Date**: January 2025
+- **Git Tag**: v1.0.0
+- **Deployment**: Single Device Model
+
+### Future Roadmap
+- **v1.1**: Bug fixes and minor improvements
+- **v2.0**: Multi-device synchronization
+- **v2.1**: Cloud backup options
+- **v3.0**: Hospital-wide data sharing
+
+### Technical Specifications
+- **Frontend**: React + TypeScript
+- **Database**: SQLite (WebAssembly)
+- **AI Integration**: Groq API + WebLLM
+- **Standards**: FHIR R4 compliant
+- **Storage**: Browser localStorage
+- **Deployment**: Static web application
+
+---
+
+**© 2025 MedThread AI - Healthcare Provider User Manual v1.0.0**
      - Assigned provider
 
 2. **AI-Generated Tasks**
