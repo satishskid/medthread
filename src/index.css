@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-base-100 text-base-content;
+  }
+}
+
+@layer components {
+  .chat-container {
+    @apply flex flex-col h-screen bg-chat-bg;
+  }
+  
+  .message-bubble {
+    @apply max-w-xs lg:max-w-md px-4 py-2 rounded-lg shadow-sm;
+  }
+  
+  .message-user {
+    @apply bg-message-user text-blue-900 ml-auto;
+  }
+  
+  .message-ai {
+    @apply bg-message-ai text-purple-900 mr-auto;
+  }
+  
+  .message-system {
+    @apply bg-message-system text-orange-900 mx-auto text-center text-sm;
+  }
+  
+  .task-item {
+    @apply bg-white border border-gray-200 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow;
+  }
+  
+  .task-urgent {
+    @apply border-l-4 border-l-red-500;
+  }
+  
+  .task-routine {
+    @apply border-l-4 border-l-green-500;
+  }
+  
+  .task-emergent {
+    @apply border-l-4 border-l-red-600 bg-red-50;
+  }
+  
+  .medical-input {
+    @apply input input-bordered w-full focus:input-primary;
+  }
+  
+  .medical-btn {
+    @apply btn btn-primary font-medium;
+  }
+  
+  .medical-btn-secondary {
+    @apply btn btn-secondary font-medium;
+  }
+  
+  .role-badge {
+    @apply badge badge-outline text-xs font-medium;
+  }
+  
+  .role-doctor {
+    @apply badge-primary;
+  }
+  
+  .role-nurse {
+    @apply badge-secondary;
+  }
+  
+  .role-patient {
+    @apply badge-accent;
+  }
+  
+  .role-admin {
+    @apply badge-neutral;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom animations */
+@keyframes pulse-medical {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-medical {
+  animation: pulse-medical 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Loading spinner for AI responses */
+.typing-indicator {
+  @apply flex space-x-1;
+}
+
+.typing-dot {
+  @apply w-2 h-2 bg-gray-400 rounded-full animate-bounce;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.2s;
+}
